@@ -10,6 +10,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import me.tbsten.notificationpractice.setup.SetupScreen
 import me.tbsten.notificationpractice.ui.theme.NotificationPracticeTheme
@@ -36,5 +39,15 @@ class MainActivity : ComponentActivity() {
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
 fun App() {
-    SetupScreen()
+    val navController = rememberNavController()
+    NavHost(navController = navController, startDestination = "setup") {
+        composable("setup") {
+            SetupScreen(
+                gotoNotifyScreen = { navController.navigate("notify") },
+            )
+        }
+        composable("notify") {
+
+        }
+    }
 }

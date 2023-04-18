@@ -40,7 +40,9 @@ enum class SetupStatus {
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SetupScreen() {
+fun SetupScreen(
+    gotoNotifyScreen: () -> Unit,
+) {
     val setupState = rememberSetupState()
 
     Scaffold(
@@ -65,6 +67,10 @@ fun SetupScreen() {
                 Button(onClick = { setupState.gotoSetting() }) {
                     Text("ONにする")
                 }
+            }
+
+            Button(onClick = { gotoNotifyScreen() }) {
+                Text("通知送信ページへ")
             }
         }
     }
