@@ -14,6 +14,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
+import me.tbsten.notificationpractice.notify.NotifyScreen
 import me.tbsten.notificationpractice.setup.SetupScreen
 import me.tbsten.notificationpractice.ui.theme.NotificationPracticeTheme
 
@@ -47,7 +48,7 @@ fun App() {
             )
         }
         composable("notify") {
-
+            NotifyScreen()
         }
     }
 }
