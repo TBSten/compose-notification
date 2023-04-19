@@ -45,6 +45,11 @@ fun SetupScreen(
 ) {
     val setupState = rememberSetupState()
 
+    LaunchedEffect(Unit) {
+        if (setupState.status == SetupStatus.Granted)
+            gotoNotifyScreen()
+    }
+
     Scaffold(
         topBar = {
             TopAppBar(title = { Text("設定") })
